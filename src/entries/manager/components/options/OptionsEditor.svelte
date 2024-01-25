@@ -35,11 +35,13 @@
     const globalDarkModeInputId = getUniqueElementId();
     const windowFocusWorkaroundInputId = getUniqueElementId();
     const editModeAlwaysShowOptionsId = getUniqueElementId();
+    const setDefaultProfileLastFocusedInputId = getUniqueElementId();
 
     let darkModeChecked = false;
     let darkModeAllChecked = false;
     let windowFocusWorkAroundChecked = false;
     let editModeAlwaysShowOptionsChecked = false;
+    let setDefaultProfileLastFocusedChecked = true;
     let popupProfileOrder = null;
     deserializeSettings(operation.initialProfileOptions, operation.initialGlobalOptions)
 
@@ -48,6 +50,7 @@
         darkModeAllChecked = global.darkMode != null;
         windowFocusWorkAroundChecked = global.windowFocusWorkaround;
         editModeAlwaysShowOptionsChecked = global.editModeAlwaysShowOptions;
+        setDefaultProfileLastFocusedChecked = global.setDefaultProfileLastFocused;
         popupProfileOrder = global.popupProfileOrder;
     }
 
@@ -63,6 +66,7 @@
                 darkMode: darkModeAllChecked ? darkModeChecked : null,
                 windowFocusWorkaround: windowFocusWorkAroundChecked,
                 editModeAlwaysShowOptions: editModeAlwaysShowOptionsChecked,
+                setDefaultProfileLastFocused: setDefaultProfileLastFocusedChecked, 
                 disableAnimations: false, // TODO
                 popupProfileOrder
             };
@@ -114,6 +118,12 @@
             <InputLabel forId={editModeAlwaysShowOptionsId}>Always show options in edit mode</InputLabel>
             <Input id={editModeAlwaysShowOptionsId} type="checkbox" bind:checked={editModeAlwaysShowOptionsChecked} />
             <p>Show options in edit mode even when not hovering over profiles. Useful on touchscreen devices.</p>
+        </div>
+        <div>
+            <!--suppress XmlInvalidId -->
+            <InputLabel forId={setDefaultProfileLastFocusedInputId}>Make external links open in last-focused Window:</InputLabel>
+            <Input id={setDefaultProfileLastFocusedInputId} type="checkbox" bind:checked={setDefaultProfileLastFocusedChecked} />
+            <p>Enable this to get Chrome-like behaviour where the last window you focused becomes your "Default Profile", resulting in external links opening in the last window you visited.</p>
         </div>
     </div>
     <svelte:fragment slot="controls-right">

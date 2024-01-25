@@ -91,6 +91,13 @@ export const darkModeStore: Readable<boolean> = derived(
         return globalDarkMode ?? profileDarkMode ?? false;
     }
 );
+export const setDefaultProfileLastFocused: Readable<boolean> = derived(
+    [globalOptionsStore],
+    ([globalOptions]) => {
+        const globalSetDefaultProfileLastFocused = globalOptions?.setDefaultProfileLastFocused;
+        return globalSetDefaultProfileLastFocused;
+    }
+);
 export const disableAnimationsStore: Readable<boolean> = derived(
     [globalOptionsStore, reducedMotionStore],
     ([globalOptions, reducedMotion]) => {

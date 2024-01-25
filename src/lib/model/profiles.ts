@@ -21,6 +21,7 @@ export interface GlobalOptions {
     darkMode: boolean | null;
     windowFocusWorkaround: boolean;
     editModeAlwaysShowOptions: boolean;
+    setDefaultProfileLastFocused: boolean;
     disableAnimations: boolean;
     popupProfileOrder: string[] | null;
 }
@@ -30,6 +31,7 @@ export function defaultGlobalOptions(): GlobalOptions {
         darkMode: null,
         windowFocusWorkaround: false,
         editModeAlwaysShowOptions: false,
+        setDefaultProfileLastFocused: true,
         disableAnimations: false,
         popupProfileOrder: null,
     }
