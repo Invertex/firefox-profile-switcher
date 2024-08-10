@@ -9,6 +9,7 @@
     "watch": "vite build --watch",
     "dev": "vite",
     "serve:firefox": "npm run web-ext -- run --start-url \"about:debugging#/runtime/this-firefox\"",
+    "serve:firefox-dev": "npm run web-ext -- run --firefox=firefoxdeveloperedition --start-url \"about:debugging#/runtime/this-firefox\"",
     "serve:chrome": "npm run web-ext -- run -t chromium --start-url \"https://google.com\"",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "package": "npm run build && npm run web-ext -- build --overwrite-dest",
